@@ -1,0 +1,80 @@
+source,target,type
+Iron Man 1,Iron Man,type2
+Iron Man 1,Nick Fury,type2
+Incredible Hulk,Iron Man,type2
+Incredible Hulk,Hulk,type2
+Iron Man 2,Iron Man,type2
+Iron Man 2,Nick Fury,type2
+Iron Man 2,Black Widow,type2
+Thor:movie,Thor,type2
+Thor:movie,Nick Fury,type2
+Thor:movie,Hawkeye,type2
+Captain America: First Avengers,Captain America,type2
+Captain America: First Avengers,Nick Fury,type2
+Captain America: First Avengers,Bucky Barnes,type2
+Avengers,Iron Man,type2
+Avengers,Captain America,type2
+Avengers,Nick Fury,type2
+Avengers,Thor,type2
+Avengers,Hulk,type2
+Avengers,Black Widow,type2
+Avengers,Hawkeye,type2
+Iron Man 3,Iron Man,type2
+Iron Man 3,Hulk,type2
+Thor: The Dark World,Captain America,type2
+Thor: The Dark World,Thor,type2
+Captain America: The Winter Soldier,Captain America,type2
+Captain America: The Winter Soldier,Nick Fury,type2
+Captain America: The Winter Soldier,Black Widow,type2
+Captain America: The Winter Soldier,Bucky Barnes,type2
+Captain America: The Winter Soldier,Scarlet Witch,type2
+Guardians of the Galaxy,Star-Lord,type2
+Avengers: Age of Ultron,Iron Man,type2
+Avengers: Age of Ultron,Captain America,type2
+Avengers: Age of Ultron,Nick Fury,type2
+Avengers: Age of Ultron,Thor,type2
+Avengers: Age of Ultron,Hulk,type2
+Avengers: Age of Ultron,Black Widow,type2
+Avengers: Age of Ultron,Hawkeye,type2
+Avengers: Age of Ultron,Scarlet Witch,type2
+Avengers: Age of Ultron,Vision,type2
+Ant-Man:movie,Ant-Man,type2
+Ant-Man:movie,Captain America,type2
+Ant-Man:movie,Bucky Barnes,type2
+Captain America: Civil War,Iron Man,type2
+Captain America: Civil War,Captain America,type2
+Captain America: Civil War,Black Widow,type2
+Captain America: Civil War,Hawkeye,type2
+Captain America: Civil War,Bucky Barnes,type2
+Captain America: Civil War,Scarlet Witch,type2
+Captain America: Civil War,Vision,type2
+Captain America: Civil War,Ant-Man,type2
+Captain America: Civil War,Spider-Man,type2
+Captain America: Civil War,Black Panther,type2
+Doctor Strange:movie,Doctor Strange,type2
+Doctor Strange:movie,Thor,type2
+Guardians of the Galaxy Vol. 2,Star-Lord,type2
+Spider-Man: Homecoming,Iron Man,type2
+Spider-Man: Homecoming,Captain America,type2
+Spider-Man: Homecoming,Spider-Man,type2
+Thor: Ragnarok,Thor,type2
+Thor: Ragnarok,Hulk,type2
+Thor: Ragnarok,Doctor Strange,type2
+Black Panther:movie,Black Panther,type2
+Avengers: Infinity War,Iron Man,type2
+Avengers: Infinity War,Captain America,type2
+Avengers: Infinity War,Thor,type2
+Avengers: Infinity War,Hulk,type2
+Avengers: Infinity War,Black Widow,type2
+Avengers: Infinity War,Hawkeye,type2
+Avengers: Infinity War,Scarlet Witch,type2
+Avengers: Infinity War,Vision,type2
+Avengers: Infinity War,Bucky Barnes,type2
+Avengers: Infinity War,Star-Lord,type2
+Avengers: Infinity War,Ant-Man,type2
+Avengers: Infinity War,Spider-Man,type2
+Avengers: Infinity War,Doctor Strange,type2
+Avengers: Infinity War,Black Panther,type2
+Ant-Man and the Wasp,Ant-Man,type2
+Captain Marvel:movie,Captain Marvel,type2
+Captain Marvel:movie,Nick Fury,type2

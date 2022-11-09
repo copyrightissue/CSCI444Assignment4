@@ -1,0 +1,75 @@
+
+body {
+    font : 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+}
+
+.link {
+    stroke: #0c0c0c;
+    stroke-opacity: .6;
+}
+body { background-image: linear-gradient(to right top, #a46e8d, #9d6e96, #936f9f, #8671a7, #7574ae, #6b81bb, #608ec7, #549bcf, #5cb5dd, #6fcee8, #8ce7f1, #aefffa); }
+.node {
+    stroke: #000000;
+    stroke-width: .5px;
+}
+
+.node text {
+    pointer-events: none;
+    font: 15px sans-serif;
+
+}
+
+.node.group1{
+    fill: #00C8E7;
+    stroke-opacity: .3;
+    stroke-width: 4;
+}
+
+.node.group2{
+    fill: #A94838;
+    stroke-opacity: .3;
+    stroke-width: 4;
+}
+
+
+.link.type1{
+    stroke: black;
+    stroke-opacity: .3;
+    stroke-width: 4;
+}
+
+.link.type2{
+    stroke: #BEA6A1;
+    stroke-opacity: .6;
+    stroke-width: 4;
+}
+.float-container {
+
+    padding: 10px;
+    margin: 10px;
+}
+.float-child {
+    float: left;
+    width: 20%;
+    padding: 10px;
+
+
+}
+.float-container::after {
+    content: "";
+    clear: both;
+    display: inline;
+}
+
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+    overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+    font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-uqo3{text-align:center;vertical-align:top}
+.tg .tg-baqh{text-align:center;vertical-align:top}
+.tg .tg-u5z2{font-family:inherit;text-align:center;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-8npf{background-color:#d34a4a;text-align:center;vertical-align:top}
+
+

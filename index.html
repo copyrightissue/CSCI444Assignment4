@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Project 4</title>
+<link rel="stylesheet" href="style.css">
+
+<body>
+<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+    var linkpath = ("links.csv");
+    var nodepath = ("nodes.csv");
+
+    var width = 960,
+        height = 700;
+
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    svg.append("text")
+        .attr("x", (width / 2))
+        .attr("y", 50)
+        .attr("text-anchor", "middle")
+        .style("font-size", "20px")
+        .style("text-decoration", "underline")
+        .text("Marvel Cinematic Universe Network: Movie and Character Connections");
+
+
+
+
+    //Want to have different labels
+    // SETTING UP THE FORCE LAYOUT
+    var force = d3.layout.force()
+        //using width/height from above, but size is mainly det'd by linkDistance and charge
+        .size([width, height])
+        // how far between nodes
+        .linkDistance(60)
+        // changes how close nodes will get to each other. Neg is farther apart.
+        .charge(-600);
+
+
+    d3.csv(nodepath, function(nodes) {
+
+        var nodelookup = {};
+        var nodecollector = {};
+
+        count = 0;
+// we want to create a lookup table that will relate the links file and the nodes file
+        nodes.forEach(function(row) {
+            nodelookup[row.node] = count;
+
+            nodecollector[row.node] = {name: row.node, group: row.group};
+            //console.log(nodecollector)
+
+            //console.log(row.node)
+            //console.log(nodelookup)
+
+            count++;
+        });
+
+//Get all the links out of of the csv in a way that will match up with the nodes
+
+        d3.csv(linkpath, function(linkchecker) {
+
+            var linkcollector = {};
+            indexsource = 0;
+            indextarget = 0;
+            count= 0;
+
+            linkchecker.forEach(function(link) {
+
+                linkcollector[count] = {source: nodelookup[link.source], target: nodelookup[link.target], type: link.type };
+                //console.log(linkcollector[count])
+                count++
+            });
+
+//console.log(linkcollector)
+            var nodes = d3.values(nodecollector);
+            var links = d3.values(linkcollector);
+
+//console.log(nodes)
+//console.log(links)
+
+            // Create the link lines.
+            var link = svg.selectAll(".link")
+                .data(links)
+                .enter().append("line")
+                .attr("class", function(d) { return "link " + d.type; })
+
+            // Create the node circles.
+            var node = svg.selectAll(".node")
+                .data(nodes)
+                .enter().append("g")
+                .attr("class", "node")
+                .call(force.drag);
+
+            //put in little circles to drag
+
+            node.append("circle")
+
+                .attr("r", 6)
+                .attr("class", function(d) { return "node " + d.group; })
+                .call(force.drag);
+
+//add the words
+            node.append("text")
+                .attr("dx", 12)
+                .attr("dy", ".35em")
+                .text(function(d) { return d.name });
+
+//get it going!
+            force
+                .nodes(nodes)
+                .links(links)
+                .start();
+
+            force.on("tick", function() {
+
+
+                link.attr("x1", function(d) { return d.source.x; })
+                    .attr("y1", function(d) { return d.source.y; })
+                    .attr("x2", function(d) { return d.target.x; })
+                    .attr("y2", function(d) { return d.target.y; });
+
+//I think that translate changes all of the x and ys at once instead of one by one?
+
+                node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+            })
+
+
+
+        });
+
+    });
+
+</script>
+<div class="float-container">
+    <div class="float-child">
+    <table class="tg">
+        <thead>
+        <tr>
+            <th class="tg-0lax"><span style="font-weight:bold">Character</span></th>
+            <th class="tg-0lax"><span style="font-weight:bold">Appearances</span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="tg-0lax">Iron Man</td>
+            <td class="tg-8npf">9</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">Captain America</td>
+            <td class="tg-8npf">9</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">Nick Fury</td>
+            <td class="tg-baqh">8</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">Thor</td>
+            <td class="tg-baqh">7</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">Hulk</td>
+            <td class="tg-baqh">6</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">Black Widow</td>
+            <td class="tg-baqh">6</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">Hawkeye</td>
+            <td class="tg-baqh">5</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">Bucky Barnes</td>
+            <td class="tg-baqh">5</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">Scarlet Witch</td>
+            <td class="tg-baqh">4</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">Ant-Man</td>
+            <td class="tg-baqh">4</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">VIsion</td>
+            <td class="tg-baqh">3</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">Star-Lord</td>
+            <td class="tg-baqh">3</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">Spider-Man</td>
+            <td class="tg-u5z2">3</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">Doctor Strange</td>
+            <td class="tg-baqh">3</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">Black Panther</td>
+            <td class="tg-baqh">3</td>
+        </tr>
+        <tr>
+            <td class="tg-0lax">Captain Marvel</td>
+            <td class="tg-uqo3">1</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+<div class="float-container">
+<!--    <div class="float-child">-->
+        <p><b>Hypothesis</b> - If you were a super villain in the Marvel Cinematic Universe, it would be most effective to focus on attacking a few key heroes, rather than engage in targeting all MCU heroes equally. There are only a few central heroes on which the MCU repeatedly depends. </p>
+        <p><b>Conclusion</b> - I used the Marvel Cinematic Universe Wiki to find all the heroes in the MCU. By creating a network graph of the appearances of each hero in the movies, I was able to see which heroes appeared together the most. I limited the
+        number of movies and characters from the MCU in order to not clutter the data, so many recent movies are missing, but it would be much harder to discern. We can see that the network graph shows us a core group of heroes, the ones who appear together frequently.
+        If you were a villain, concentrating on those characters would be more fruitful than outlier characters like Captain Marvel who is only tangentially related. By charting the frequency of appearances, we see that Iron Man and Captain America are the lynch pins of
+        the whole MCU, and would be the most profitable to target.</p>
+
+    <p style="font-size:8px">Data Source: <a href="https://marvelcinematicuniverse.fandom.com/wiki/Marvel_Cinematic_Universe_Wiki">Marvel Cinematic Universe Wiki</a></p>
+    <p style="font-size:8px">Annotations: <a href="AnnotatedAssignment4.pdf">Annotated Assignment 4</a></p>
+<!--    </div>-->
+</div>
+
+</body>
+
